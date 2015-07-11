@@ -18,19 +18,7 @@ public class Statistic {
         }
     }
 
-    public int getModifier() throws Exception {
-        if (value < 2) return -5;
-        if (value < 4) return -4;
-        if (value < 6) return -3;
-        if (value < 8) return -2;
-        if (value < 10) return -1;
-        if (value < 12) return 0;
-        if (value < 14) return 1;
-        if (value < 16) return 2;
-        if (value < 18) return 3;
-        if (value < 20) return 4;
-        if (value == 20) return 5;
-
-        return Integer.MIN_VALUE;
+    public int getModifier() {
+        return ((int) Math.floor((double) (value - 10) / 2.0));
     }
 }
