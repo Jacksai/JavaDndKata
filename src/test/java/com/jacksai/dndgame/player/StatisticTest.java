@@ -1,23 +1,19 @@
 package com.jacksai.dndgame.player;
 
 import org.junit.Test;
-import org.junit.experimental.theories.DataPoint;
-import org.junit.experimental.theories.DataPoints;
-import org.junit.experimental.theories.Theories;
-import org.junit.experimental.theories.Theory;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Objects;
 
 import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
 public class StatisticTest {
 
-    @Parameterized.Parameters
+    @Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] {
                 {1, -5},
@@ -44,19 +40,19 @@ public class StatisticTest {
         });
     }
 
-    public StatisticTest(int statistic, int expectedModifier) {
-        statValue = statistic;
+    public StatisticTest(int statisticValue, int expectedModifier) {
+        this.statisticValue = statisticValue;
         this.expectedModifier = expectedModifier;
     }
 
-    private int statValue;
+    private int statisticValue;
     private int expectedModifier;
 
     @Test
     public void shouldReturnValidModifierForStatistic() throws Exception {
 
         //Arrange
-        Statistic stat = new Statistic(statValue);
+        Statistic stat = new Statistic(statisticValue);
         //Act
         int returnedModifier = stat.getModifier();
         //Assert
