@@ -11,7 +11,7 @@ import java.util.Collection;
 import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
-public class StatisticTest {
+public class StatisticModifierTest {
 
     @Parameters
     public static Collection<Object[]> data() {
@@ -40,7 +40,7 @@ public class StatisticTest {
         });
     }
 
-    public StatisticTest(int statisticValue, int expectedModifier) {
+    public StatisticModifierTest(int statisticValue, int expectedModifier) {
         this.statisticValue = statisticValue;
         this.expectedModifier = expectedModifier;
     }
