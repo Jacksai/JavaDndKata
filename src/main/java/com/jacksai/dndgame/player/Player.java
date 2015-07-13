@@ -32,6 +32,14 @@ public class Player {
         this.health  = new Health();
     }
 
+    public int getHealth() {
+        return health.getHealth();
+    }
+
+    public int getArmorClass() {
+        return armorClass.getArmorClass();
+    }
+
     //Attribute classes
     class ArmorClass {
 
@@ -58,13 +66,13 @@ public class Player {
 
     class Health {
 
-        private static final int DEFAULT_HEALT = 10;
+        private static final int DEFAULT_HEALTH = 5;
 
         private final
         int value;
 
         public Health() {
-            this(DEFAULT_HEALT);
+            this(DEFAULT_HEALTH);
         }
 
         public Health(int value) {
@@ -72,7 +80,7 @@ public class Player {
         }
 
         public int getHealth() {
-            return this.value + constitution.getModifier();
+            return this.value + constitution.getModifier() > 0 ? this.value + constitution.getModifier() : 1;
         }
 
         public int getValue() {
