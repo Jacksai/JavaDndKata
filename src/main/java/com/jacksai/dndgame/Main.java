@@ -1,9 +1,12 @@
 package com.jacksai.dndgame;
 
+import com.jacksai.dndgame.gui.GuiApplication;
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello World");
+        GuiApplication guiApplication = new GuiApplication();
+        guiApplication.startApplication();
     }
 
 }
