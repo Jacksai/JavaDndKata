@@ -1,6 +1,5 @@
 package com.jacksai.dndgame.player;
 
-import junit.framework.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -14,7 +13,7 @@ public class StatisticTest {
         Statistic statistic = new Statistic(tooBigStatistic);
 
         //Assert
-        Assert.assertEquals(Statistic.MAX_STAT_VALUE, statistic.getValue());
+        assertEquals(Statistic.MAX_STAT_VALUE, statistic.getValue());
     }
 
     @Test
@@ -24,8 +23,7 @@ public class StatisticTest {
         Statistic statistic = new Statistic(tooSmallStatistic);
 
         //Assert
-        Assert.assertEquals(Statistic.MIN_STAT_VALUE, statistic.getValue());
-
+        assertEquals(Statistic.MIN_STAT_VALUE, statistic.getValue());
     }
 
     @Test
@@ -35,6 +33,6 @@ public class StatisticTest {
         Statistic statistic = new Statistic(newStatisticValue);
 
         //Assert
-        Assert.assertEquals(newStatisticValue, statistic.getValue());
+        assertEquals(newStatisticValue, statistic.getValue());
     }
 }

@@ -50,14 +50,13 @@ public class StatisticModifierTest {
 
     @Test
     public void shouldReturnValidModifierForStatistic() throws Exception {
-
         //Arrange
         Statistic stat = new Statistic(statisticValue);
+
         //Act
         int returnedModifier = stat.getModifier();
+
         //Assert
         assertEquals(expectedModifier, returnedModifier);
     }
-
-
 }
