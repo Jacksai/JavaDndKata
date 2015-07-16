@@ -1,9 +1,9 @@
 package com.jacksai.dndgame.items;
 
-public class Item {
+public abstract class Item {
 
-    private static String name;
-    private static Double weight;
+    private final String name;
+    private final Double weight;
 
     public Item(String name, Double weight) {
         this.name = name;
