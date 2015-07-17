@@ -1,7 +1,10 @@
 package com.jacksai.dndgame.player;
 
-import org.junit.Assert;
+import com.jacksai.dndgame.items.Item;
+import com.jacksai.dndgame.items.weapon.Weapon;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class PlayerTest {
 
@@ -16,7 +19,7 @@ public class PlayerTest {
         int health = player.getHealth();
 
         //Assert
-        Assert.assertEquals(10, health); //default health + constitution modifier
+        assertEquals(10, health); //default health + constitution modifier
     }
 
     @Test
@@ -31,7 +34,7 @@ public class PlayerTest {
         int health = player.getHealth();
 
         //Assert
-        Assert.assertEquals(1, health);
+        assertEquals(1, health);
     }
 
     @Test
@@ -45,7 +48,7 @@ public class PlayerTest {
         int armorClass = player.getArmorClass();
 
         //Assert
-        Assert.assertEquals(15, armorClass); //default armor + dexterity modifier
+        assertEquals(15, armorClass); //default armor + dexterity modifier
     }
 
     @Test
@@ -59,6 +62,20 @@ public class PlayerTest {
         int armorClass = player.getArmorClass();
 
         //Assert
-        Assert.assertEquals(5, armorClass);
+        assertEquals(5, armorClass);
+    }
+
+    @Test
+    public void shouldAddItemToInventory() {
+        //Arrange
+        Item item = new Weapon("Weapon name", 1.0, 1);
+        Player player = new Player.PlayerBuilder("NAME", Player.Alignment.GOOD)
+                .build();
+
+        //Act
+        player.addItem(item);
+
+        //Assert
+        assertTrue(player.getInventory().contains(item));
     }
 }

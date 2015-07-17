@@ -1,6 +1,8 @@
 package com.jacksai.dndgame.player;
 
 
+import com.jacksai.dndgame.items.Item;
+
 public class Player {
 
     private String name;
@@ -18,6 +20,8 @@ public class Player {
     private ArmorClass armorClass;
     private Health health;
 
+    private Inventory inventory;
+
     private Player(PlayerBuilder builder) {
         this.name = builder.name;
         this.playerNature = builder.playerNature;
@@ -30,6 +34,7 @@ public class Player {
 
         this.armorClass = new ArmorClass();
         this.health  = new Health();
+        this.inventory = new Inventory();
     }
 
     public int getHealth() {
@@ -38,6 +43,14 @@ public class Player {
 
     public int getArmorClass() {
         return armorClass.getArmorClass();
+    }
+
+    public int addItem(Item item) {
+
+    }
+
+    public Inventory getInventory() {
+        return inventory;
     }
 
     //Attribute classes
