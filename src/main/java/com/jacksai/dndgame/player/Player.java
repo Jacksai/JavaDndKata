@@ -6,7 +6,7 @@ import com.jacksai.dndgame.items.Item;
 public class Player {
 
     private String name;
-    private Alignment playerNature;
+    private PlayerNature playerNature;
 
     //Statistics
     private Statistic strength;
@@ -22,7 +22,7 @@ public class Player {
 
     private Inventory inventory;
 
-    private Player(PlayerBuilder builder) {
+    private Player(Builder builder) {
         this.name = builder.name;
         this.playerNature = builder.playerNature;
         this.strength = builder.strength;
@@ -37,6 +37,10 @@ public class Player {
         this.inventory = new Inventory();
     }
 
+    public void addItem(Item item) {
+        inventory.addItem(item);
+    }
+
     public int getHealth() {
         return health.getHealth();
     }
@@ -45,12 +49,32 @@ public class Player {
         return armorClass.getArmorClass();
     }
 
-    public int addItem(Item item) {
-
-    }
-
     public Inventory getInventory() {
         return inventory;
+    }
+
+    public Statistic getStrength() {
+        return strength;
+    }
+
+    public Statistic getDexterity() {
+        return dexterity;
+    }
+
+    public Statistic getConstitution() {
+        return constitution;
+    }
+
+    public Statistic getWisdom() {
+        return wisdom;
+    }
+
+    public Statistic getIntelligence() {
+        return intelligence;
+    }
+
+    public Statistic getCharisma() {
+        return charisma;
     }
 
     //Attribute classes
@@ -102,18 +126,17 @@ public class Player {
 
     }
 
-    public enum Alignment {
+    public enum PlayerNature {
         GOOD,
-        EVIL,
-        BAD
+        NEUTRAL,
+        EVIL
     }
 
     //Builder
-    public static class PlayerBuilder {
+    public static class Builder {
 
         //Required fields
         private final String name;
-        private final Alignment playerNature;
 
         //Optional fields
         private Statistic strength = new Statistic();
@@ -122,33 +145,37 @@ public class Player {
         private Statistic wisdom = new Statistic();
         private Statistic intelligence = new Statistic();
         private Statistic charisma = new Statistic();
+        private PlayerNature playerNature = PlayerNature.NEUTRAL;
 
-        public PlayerBuilder(String name, Alignment playerNature) {
+        public Builder(String name) {
             this.name = name;
-            this.playerNature = playerNature;
         }
 
-        public PlayerBuilder strength(int value) {
+        public Builder alignment(PlayerNature playerNature) {
+            this.playerNature = playerNature; return this;
+        }
+
+        public Builder strength(int value) {
             this.strength = new Statistic(value); return this;
         }
 
-        public PlayerBuilder dexterity(int value) {
+        public Builder dexterity(int value) {
             this.dexterity = new Statistic(value); return this;
         }
 
-        public PlayerBuilder constitution(int value) {
+        public Builder constitution(int value) {
             this.constitution = new Statistic(value); return this;
         }
 
-        public PlayerBuilder wisdom(int value) {
+        public Builder wisdom(int value) {
             this.wisdom = new Statistic(value); return this;
         }
 
-        public PlayerBuilder intelligence(int value) {
+        public Builder intelligence(int value) {
             this.intelligence = new Statistic(value); return this;
         }
 
-        public PlayerBuilder charisma(int value) {
+        public Builder charisma(int value) {
             this.charisma = new Statistic(value); return this;
         }
 

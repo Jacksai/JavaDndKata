@@ -8,10 +8,13 @@ import static org.junit.Assert.*;
 
 public class PlayerTest {
 
+    public static final String defaultPlayerName = "PLAYERNAME";
+    public static final String defaultItemName = "ITEM_NAME";
+
     @Test
     public void shouldReturnCorrectHealthWithPositiveConstModifier() {
         //Arrange
-        Player player = new Player.PlayerBuilder("NAME", Player.Alignment.GOOD)
+        Player player = new Player.Builder(defaultPlayerName)
                 .constitution(20) // +5 modifier
                 .build();
 
@@ -26,7 +29,7 @@ public class PlayerTest {
     public void shouldReturnAtLeastOneHealthWithMinimumModifier() {
         //Arrange
         int minimumStatistic = 1;
-        Player player = new Player.PlayerBuilder("NAME", Player.Alignment.GOOD)
+        Player player = new Player.Builder(defaultPlayerName)
                 .constitution(minimumStatistic) // -5 modifier
                 .build();
 
@@ -41,7 +44,7 @@ public class PlayerTest {
     public void shouldReturnCorrectArmorClassWithPositiveDexModifier() {
         //Arrange
         int maximumStatistic = 20;
-        Player player = new Player.PlayerBuilder("NAME", Player.Alignment.GOOD)
+        Player player = new Player.Builder(defaultPlayerName)
                 .dexterity(maximumStatistic) // +5 modifier
                 .build();
         //Act
@@ -55,7 +58,7 @@ public class PlayerTest {
     public void shouldReturnCorrectArmorClassWithNegativeDexModifier() {
         //Arrange
         int minimumStatistic = 1;
-        Player player = new Player.PlayerBuilder("NAME", Player.Alignment.GOOD)
+        Player player = new Player.Builder(defaultPlayerName)
                 .dexterity(minimumStatistic) // -5 modifier
                 .build();
         //Act
@@ -68,8 +71,8 @@ public class PlayerTest {
     @Test
     public void shouldAddItemToInventory() {
         //Arrange
-        Item item = new Weapon("Weapon name", 1.0, 1);
-        Player player = new Player.PlayerBuilder("NAME", Player.Alignment.GOOD)
+        Item item = new Weapon(defaultItemName, 1.0, 1);
+        Player player = new Player.Builder(defaultPlayerName)
                 .build();
 
         //Act
@@ -77,5 +80,36 @@ public class PlayerTest {
 
         //Assert
         assertTrue(player.getInventory().contains(item));
+    }
+
+    @Test
+    public void shouldReturnStatisticValues() {
+        //Arrange
+        int playerStrength = 10;
+        int playerDexterity = 11;
+        int playerConstitution = 12;
+        int playerWisdom = 2;
+        int playerIntelligence = 3;
+        int playerCharisma = 5;
+
+        //Act
+        Player player = new Player.Builder(defaultPlayerName)
+                .strength(playerStrength)
+                .dexterity(playerDexterity)
+                .constitution(playerConstitution)
+                .wisdom(playerWisdom)
+                .intelligence(playerIntelligence)
+                .charisma(playerCharisma)
+                .build();
+
+        //Assert
+        assertEquals(playerStrength, player.getStrength().getValue());
+        assertEquals(playerDexterity, player.getDexterity().getValue());
+        assertEquals(playerConstitution, player.getConstitution().getValue());
+        assertEquals(playerWisdom, player.getWisdom().getValue());
+        assertEquals(playerIntelligence, player.getIntelligence().getValue());
+        assertEquals(playerCharisma, player.getCharisma().getValue());
+
+
     }
 }
