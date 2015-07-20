@@ -2,6 +2,8 @@ package com.jacksai.dndgame.player;
 
 
 import com.jacksai.dndgame.items.Item;
+import com.jacksai.dndgame.player.equipment.Equipment;
+import com.jacksai.dndgame.player.equipment.Inventory;
 
 public class Player {
 
@@ -21,6 +23,7 @@ public class Player {
     private Health health;
 
     private Inventory inventory;
+    private Equipment equipment;
 
     private Player(Builder builder) {
         this.name = builder.name;
@@ -35,6 +38,7 @@ public class Player {
         this.armorClass = new ArmorClass();
         this.health  = new Health();
         this.inventory = new Inventory();
+        this.equipment = new Equipment(inventory);
     }
 
     public void addItem(Item item) {
@@ -75,6 +79,10 @@ public class Player {
 
     public Statistic getCharisma() {
         return charisma;
+    }
+
+    public Equipment getEquipment() {
+        return equipment;
     }
 
     //Attribute classes

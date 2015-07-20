@@ -1,4 +1,4 @@
-package com.jacksai.dndgame.player;
+package com.jacksai.dndgame.player.equipment;
 
 import com.jacksai.dndgame.items.Item;
 

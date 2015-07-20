@@ -1,8 +1,9 @@
-package com.jacksai.dndgame.player;
+package com.jacksai.dndgame.player.equipment;
 
 import com.jacksai.dndgame.items.Item;
 import com.jacksai.dndgame.items.armor.Armor;
 import com.jacksai.dndgame.items.weapon.Weapon;
+import com.jacksai.dndgame.player.equipment.Inventory;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

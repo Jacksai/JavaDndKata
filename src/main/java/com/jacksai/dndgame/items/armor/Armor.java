@@ -4,7 +4,8 @@ import com.jacksai.dndgame.items.Item;
 
 public class Armor extends Item {
 
-    private final Integer armorRating;
+    private Integer armorRating;
+    private ArmorType armorType;
 
     public Armor(String armorName, Double armorWeight, Integer armorRating) {
         super(armorName, armorWeight);
@@ -13,5 +14,13 @@ public class Armor extends Item {
 
     public Integer getArmorRating() {
         return armorRating;
+    }
+
+    public ArmorType getArmorType() {
+        return armorType;
+    }
+
+    public void setArmorType(ArmorType armorType) {
+        this.armorType = armorType;
     }
 }
