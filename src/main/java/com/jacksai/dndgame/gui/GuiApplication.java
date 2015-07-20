@@ -1,16 +1,19 @@
 package com.jacksai.dndgame.gui;
 
-import com.googlecode.lanterna.TerminalFacade;
-import com.googlecode.lanterna.gui.GUIScreen;
-import com.googlecode.lanterna.gui.Window;
+import com.jacksai.dndgame.gui.asciiPanel.AsciiPanel;
 
-public class GuiApplication {
+import javax.swing.*;
 
-    public void startApplication() {
-        GUIScreen guiScreen = TerminalFacade.createGUIScreen();
-        guiScreen.getScreen().startScreen();
-        Window window = new MainWindow();
-        guiScreen.showWindow(window, GUIScreen.Position.CENTER);
-        guiScreen.getScreen().stopScreen();
+public class GuiApplication extends JFrame {
+
+    private AsciiPanel terminal;
+
+    public GuiApplication() {
+        super();
+        terminal = new AsciiPanel();
+        terminal.write("RL Tuturial", 1,1);
+        add(terminal);
+        pack();
     }
+
 }
