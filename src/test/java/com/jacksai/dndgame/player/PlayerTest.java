@@ -109,7 +109,5 @@ public class PlayerTest {
         assertEquals(playerWisdom, player.getWisdom().getValue());
         assertEquals(playerIntelligence, player.getIntelligence().getValue());
         assertEquals(playerCharisma, player.getCharisma().getValue());
-
-
     }
 }

@@ -13,18 +13,6 @@
     <dependencies>
         <!-- APPLICATION DEPENDENCIES -->
 
-        <!-- LOGGING -->
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>2.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>2.3</version>
-        </dependency>
-
         <!-- TEST DEPENDENCIES -->
         <dependency>
             <groupId>junit</groupId>
@@ -32,8 +20,13 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>2.0.30-beta</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
-
 
     <!-- BUILD CYCLE -->
 
