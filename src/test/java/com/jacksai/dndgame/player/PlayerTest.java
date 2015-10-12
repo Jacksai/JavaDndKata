@@ -71,15 +71,15 @@ public class PlayerTest {
     @Test
     public void shouldAddItemToInventory() {
         //Arrange
-        Item item = new Weapon(defaultItemName, 1.0, 1);
+        Weapon weapon = new Weapon(defaultItemName, 1.0, 1);
         Player player = new Player.Builder(defaultPlayerName)
                 .build();
 
         //Act
-        player.addItem(item);
+        player.addItem(weapon);
 
         //Assert
-        assertTrue(player.getInventory().contains(item));
+        assertTrue(player.getInventory().contains(weapon));
     }
 
     @Test
@@ -109,7 +109,5 @@ public class PlayerTest {
         assertEquals(playerWisdom, player.getWisdom().getValue());
         assertEquals(playerIntelligence, player.getIntelligence().getValue());
         assertEquals(playerCharisma, player.getCharisma().getValue());
-
-
     }
 }

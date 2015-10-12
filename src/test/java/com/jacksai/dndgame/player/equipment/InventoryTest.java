@@ -10,6 +10,8 @@ import static org.junit.Assert.*;
 
 public class InventoryTest {
 
+    private static final String DEFAULT_ITEM_NAME = "Item Name";
+
     @Test
     public void shouldBeEmptyOnStart() {
         //Arrange
@@ -22,28 +24,28 @@ public class InventoryTest {
     @Test
     public void shouldCorrectlyAddItem() {
         //Arrange
-        Item item = new Weapon("NAME", 1.0d, 1);
+        Weapon weapon = new Weapon(DEFAULT_ITEM_NAME, 1.0d, 1);
         Inventory inventory = new Inventory();
 
         //Act
-        inventory.addItem(item);
+        inventory.addItem(weapon);
 
         //Assert
-        assertTrue(inventory.contains(item));
+        assertTrue(inventory.contains(weapon));
     }
 
     @Test
     public void shouldCorrectlyRemoveItem() {
         //Arrange
-        Item item = new Weapon("NAME", 1.0d, 1);
+        Weapon weapon = new Weapon(DEFAULT_ITEM_NAME, 1.0d, 1);
         Inventory inventory = new Inventory();
-        inventory.addItem(item);
+        inventory.addItem(weapon);
 
         //Act
-        inventory.removeItem(item);
+        inventory.removeItem(weapon);
 
         //Assert
-        assertFalse(inventory.contains(item));
+        assertFalse(inventory.contains(weapon));
     }
 
     @Test
@@ -52,8 +54,8 @@ public class InventoryTest {
         double weaponWeight = 1.4;
         double armorWeight = 2.2;
 
-        Item weapon = new Weapon("WeaponName", weaponWeight, 1);
-        Item armor = new Armor("ArmorName", armorWeight, 1);
+        Weapon weapon = new Weapon(DEFAULT_ITEM_NAME, weaponWeight, 1);
+        Armor armor = new Armor(DEFAULT_ITEM_NAME, armorWeight, 1);
 
         Inventory inventory = new Inventory();
 

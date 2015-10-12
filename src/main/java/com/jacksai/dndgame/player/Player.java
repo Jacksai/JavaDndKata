@@ -1,6 +1,7 @@
 package com.jacksai.dndgame.player;
 
 
+import com.jacksai.dndgame.items.Inventorable;
 import com.jacksai.dndgame.items.Item;
 import com.jacksai.dndgame.player.equipment.Equipment;
 import com.jacksai.dndgame.player.equipment.Inventory;
@@ -41,7 +42,7 @@ public class Player {
         this.equipment = new Equipment(inventory);
     }
 
-    public void addItem(Item item) {
+    public void addItem(Inventorable item) {
         inventory.addItem(item);
     }
 
