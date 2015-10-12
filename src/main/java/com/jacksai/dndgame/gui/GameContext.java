@@ -5,25 +5,34 @@ import com.googlecode.lanterna.gui.GUIScreen;
 import com.googlecode.lanterna.gui.Window;
 import com.jacksai.dndgame.gui.views.MainMenuView;
 
-public class KataGameScreen {
-
-    private final String WINDOW_TITLE = "Java Kata Game";
+public class GameContext {
 
     private GUIScreen guiScreen;
     private Window currentWindow;
+    private static GameContext gameContext;
 
-    public KataGameScreen() {
+    private GameContext() {
         //creating gui Screen
         this.guiScreen = TerminalFacade.createGUIScreen();
-        this.currentWindow = new MainMenuView(WINDOW_TITLE);
+        this.currentWindow = new MainMenuView();
     }
 
-    public void startGame() {
+    public static GameContext getGameContext() {
+        if(gameContext == null) gameContext = new GameContext();
+        return gameContext;
+    }
+
+    public void renderScreen() {
         if(guiScreen != null ) {
             guiScreen.getScreen().startScreen();
             guiScreen.showWindow(currentWindow, GUIScreen.Position.CENTER);
             guiScreen.getScreen().stopScreen();
         }
+    }
+
+    public void changeView(Window newView) {
+        this.currentWindow = newView;
+        renderScreen();
     }
 
     public GUIScreen getGuiScreen() {

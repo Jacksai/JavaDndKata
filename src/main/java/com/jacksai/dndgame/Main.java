@@ -1,10 +1,10 @@
 package com.jacksai.dndgame;
 
-import com.jacksai.dndgame.gui.KataGameScreen;
+import com.jacksai.dndgame.gui.GameContext;
 
 public class Main {
     public static void main(String[] args) {
-        KataGameScreen kataGameScreen = new KataGameScreen();
-        kataGameScreen.startGame();
+        GameContext gameContext = GameContext.getGameContext();
+        gameContext.renderScreen();
     }
 }
