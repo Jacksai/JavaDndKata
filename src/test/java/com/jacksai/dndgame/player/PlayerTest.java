@@ -1,6 +1,5 @@
 package com.jacksai.dndgame.player;
 
-import com.jacksai.dndgame.items.Item;
 import com.jacksai.dndgame.items.weapon.Weapon;
 import org.junit.Test;
 

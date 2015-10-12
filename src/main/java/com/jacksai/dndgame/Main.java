@@ -1,15 +1,10 @@
 package com.jacksai.dndgame;
 
-import com.jacksai.dndgame.gui.GuiApplication;
-
-import javax.swing.*;
+import com.jacksai.dndgame.gui.KataGameScreen;
 
 public class Main {
-
     public static void main(String[] args) {
-        GuiApplication app = new GuiApplication();
-        app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        app.setVisible(true);
+        KataGameScreen kataGameScreen = new KataGameScreen();
+        kataGameScreen.startGame();
     }
-
 }

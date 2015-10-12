@@ -12,6 +12,11 @@
 
     <dependencies>
         <!-- APPLICATION DEPENDENCIES -->
+        <dependency>
+            <groupId>com.googlecode.lanterna</groupId>
+            <artifactId>lanterna</artifactId>
+            <version>2.1.9</version>
+        </dependency>
 
         <!-- TEST DEPENDENCIES -->
         <dependency>
