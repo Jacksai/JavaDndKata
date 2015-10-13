@@ -1,5 +1,6 @@
 package com.jacksai.dndgame.player.equipment;
 
+import com.jacksai.dndgame.items.Inventorable;
 import com.jacksai.dndgame.items.Item;
 import com.jacksai.dndgame.items.armor.Armor;
 import com.jacksai.dndgame.items.armor.ArmorType;
@@ -21,7 +22,7 @@ public class Equipment {
         this.inventory = inventory;
     }
 
-    public boolean inInInventory(Item item) {
+    public boolean isInInventory(Inventorable item) {
         return inventory.contains(item);
     }
 
@@ -30,7 +31,7 @@ public class Equipment {
     }
 
     public void setHeadArmor(Armor headArmor) throws NotInInventoryException {
-        if(inInInventory(headArmor)) {
+        if(isInInventory(headArmor)) {
             if(headArmor.getArmorType().equals(ArmorType.HELMET))
                 this.headArmor = headArmor;
         } else {
@@ -44,7 +45,7 @@ public class Equipment {
     }
 
     public void setTorsoArmor(Armor torsoArmor) throws NotInInventoryException {
-        if(inInInventory(torsoArmor)) {
+        if(isInInventory(torsoArmor)) {
             if(torsoArmor.getArmorType().equals(ArmorType.TORSO))
                 this.torsoArmor = torsoArmor;
         } else {
@@ -58,7 +59,7 @@ public class Equipment {
     }
 
     public void setBootsArmor(Armor bootsArmor) throws NotInInventoryException {
-        if(inInInventory(bootsArmor)) {
+        if(isInInventory(bootsArmor)) {
             if(bootsArmor.getArmorType().equals(ArmorType.BOOTS)) {
                 this.bootsArmor = bootsArmor;
             }
@@ -73,7 +74,7 @@ public class Equipment {
     }
 
     public void setRightHandWeapon(Weapon rightHandWeapon) throws NotInInventoryException {
-        if(inInInventory(rightHandWeapon)) {
+        if(isInInventory(rightHandWeapon)) {
             this.rightHandWeapon = rightHandWeapon;
         } else {
             throw new NotInInventoryException();
@@ -86,7 +87,7 @@ public class Equipment {
     }
 
     public void setLeftHandWeapon(Weapon leftHandWeapon) throws NotInInventoryException {
-        if(inInInventory(leftHandWeapon)) {
+        if(isInInventory(leftHandWeapon)) {
             this.leftHandWeapon = leftHandWeapon;
         } else {
             throw new NotInInventoryException();

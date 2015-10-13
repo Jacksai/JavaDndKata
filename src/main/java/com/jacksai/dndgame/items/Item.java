@@ -1,6 +1,6 @@
 package com.jacksai.dndgame.items;
 
-public abstract class Item {
+public class Item {
 
     private final String name;
     private final Double weight;

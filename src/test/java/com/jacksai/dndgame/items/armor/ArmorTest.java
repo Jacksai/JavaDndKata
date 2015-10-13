@@ -6,19 +6,19 @@ import static org.junit.Assert.*;
 
 public class ArmorTest {
 
+    private static String DEFAULT_ARMOR_NAME = "ARMOR NAME";
+    private static Double DEFAULT_ARMOR_WEIGHT = 10.3d;
+    private static Integer DEFAULT_ARMOR_RATING = 3;
+
     @Test
     public void shouldCreateCorrectArmor() {
-        //Arrange
-        String armorName = "Epic chainmail";
-        Double armorWeight = 14.5d;
-        Integer armorRating = 3;
 
         //Act
-        Armor armor = new Armor(armorName, armorWeight, armorRating);
+        Armor armor = new Armor(DEFAULT_ARMOR_NAME, DEFAULT_ARMOR_WEIGHT, DEFAULT_ARMOR_RATING);
 
         //Assert
-        assertEquals(armorName, armor.getName());
-        assertEquals(armorWeight, armor.getWeight());
-        assertEquals(armorRating, armor.getArmorRating());
+        assertEquals(DEFAULT_ARMOR_NAME, armor.getName());
+        assertEquals(DEFAULT_ARMOR_WEIGHT, armor.getWeight());
+        assertEquals(DEFAULT_ARMOR_RATING, armor.getArmorRating());
     }
 }
