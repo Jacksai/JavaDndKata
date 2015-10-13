@@ -53,4 +53,8 @@ public class GameContextTest {
         assertTrue(currentWindow instanceof MainMenuView);
 
     }
+
+    @Test
+    public void shouldCloseWindow
+
 }

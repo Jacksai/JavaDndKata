@@ -4,12 +4,14 @@ import com.googlecode.lanterna.TerminalFacade;
 import com.googlecode.lanterna.gui.GUIScreen;
 import com.googlecode.lanterna.gui.Window;
 import com.jacksai.dndgame.gui.views.MainMenuView;
+import com.jacksai.dndgame.player.Player;
 
 public class GameContext {
 
     private GUIScreen guiScreen;
     private Window currentWindow;
     private static GameContext gameContext;
+    private Player player;
 
     private GameContext() {
         //creating gui Screen
@@ -41,5 +43,13 @@ public class GameContext {
 
     public Window getCurrentWindow() {
         return this.currentWindow;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 }

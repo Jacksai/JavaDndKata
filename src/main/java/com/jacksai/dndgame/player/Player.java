@@ -86,6 +86,10 @@ public class Player {
         return equipment;
     }
 
+    public String getName() {
+        return name;
+    }
+
     //Attribute classes
     class ArmorClass {
 
@@ -133,12 +137,6 @@ public class Player {
             return this.value;
         }
 
-    }
-
-    public enum PlayerNature {
-        GOOD,
-        NEUTRAL,
-        EVIL
     }
 
     //Builder
