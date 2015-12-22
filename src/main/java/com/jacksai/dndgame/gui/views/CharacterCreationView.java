@@ -89,7 +89,7 @@ public class CharacterCreationView extends Window {
         Panel panel = new Panel(new Border.Invisible(), Panel.Orientation.HORISONTAL);
 
         panel.addComponent(new Label(statisticLabel));
-        //statisticTextBox = new TextBox();
+
         statisticTextBox.setText(DEFAULT_STATISTIC_VALUE);
         panel.addComponent(statisticTextBox);
 
@@ -99,8 +99,8 @@ public class CharacterCreationView extends Window {
     private class FinishCharacterCreationAction implements Action {
 
         private GameContext gameContext = GameContext.getGameContext();
-        private final int MINIMUM_STATISTIC_VALUE = 0;
-        private final int DEFAULT_STATISTIC_VALUE = 5;
+        private static final int MINIMUM_STATISTIC_VALUE = 0;
+        private static final int DEFAULT_STATISTIC_VALUE = 5;
 
         @Override
         public void doAction() {

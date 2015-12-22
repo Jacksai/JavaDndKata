@@ -20,7 +20,9 @@ public class GameContext {
     }
 
     public static GameContext getGameContext() {
-        if(gameContext == null) gameContext = new GameContext();
+        if(gameContext == null) {
+            gameContext = new GameContext();
+        }
         return gameContext;
     }
 

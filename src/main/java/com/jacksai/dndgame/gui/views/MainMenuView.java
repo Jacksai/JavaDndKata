@@ -8,7 +8,7 @@ import com.jacksai.dndgame.gui.GameContext;
 
 public class MainMenuView extends Window {
 
-    private final static String WINDOW_TITLE = "Java Kata Game";
+    private static final String WINDOW_TITLE = "Java Kata Game";
 
     Button newGameButton;
     Button exitButton;

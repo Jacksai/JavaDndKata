@@ -2,7 +2,6 @@ package com.jacksai.dndgame.player;
 
 
 import com.jacksai.dndgame.items.Inventorable;
-import com.jacksai.dndgame.items.Item;
 import com.jacksai.dndgame.player.equipment.Equipment;
 import com.jacksai.dndgame.player.equipment.Inventory;
 
@@ -51,7 +50,7 @@ public class Player {
     }
 
     public int getArmorClass() {
-        return armorClass.getArmorClass();
+        return armorClass.getArmorQuality();
     }
 
     public Inventory getInventory() {
@@ -94,22 +93,22 @@ public class Player {
     class ArmorClass {
 
         private static final int DEFAULT_ARMOR_CLASS = 10;
-        private final int armorClass;
+        private final int armorQuality;
 
         public ArmorClass() {
             this(DEFAULT_ARMOR_CLASS);
         }
 
-        public ArmorClass(int armorClass) {
-            this.armorClass = armorClass;
+        public ArmorClass(int armorQuality) {
+            this.armorQuality = armorQuality;
         }
 
-        public int getArmorClass() {
-            return armorClass + dexterity.getModifier();
+        public int getArmorQuality() {
+            return armorQuality + dexterity.getModifier();
         }
 
         public int getValue() {
-            return armorClass;
+            return armorQuality;
         }
 
     }
@@ -159,31 +158,38 @@ public class Player {
         }
 
         public Builder alignment(PlayerNature playerNature) {
-            this.playerNature = playerNature; return this;
+            this.playerNature = playerNature;
+            return this;
         }
 
         public Builder strength(int value) {
-            this.strength = new Statistic(value); return this;
+            this.strength = new Statistic(value);
+            return this;
         }
 
         public Builder dexterity(int value) {
-            this.dexterity = new Statistic(value); return this;
+            this.dexterity = new Statistic(value);
+            return this;
         }
 
         public Builder constitution(int value) {
-            this.constitution = new Statistic(value); return this;
+            this.constitution = new Statistic(value);
+            return this;
         }
 
         public Builder wisdom(int value) {
-            this.wisdom = new Statistic(value); return this;
+            this.wisdom = new Statistic(value);
+            return this;
         }
 
         public Builder intelligence(int value) {
-            this.intelligence = new Statistic(value); return this;
+            this.intelligence = new Statistic(value);
+            return this;
         }
 
         public Builder charisma(int value) {
-            this.charisma = new Statistic(value); return this;
+            this.charisma = new Statistic(value);
+            return this;
         }
 
         public Player build() {

@@ -32,8 +32,9 @@ public class Equipment {
 
     public void setHeadArmor(Armor headArmor) throws NotInInventoryException {
         if(isInInventory(headArmor)) {
-            if(headArmor.getArmorType().equals(ArmorType.HELMET))
+            if(headArmor.getArmorType().equals(ArmorType.HELMET)) {
                 this.headArmor = headArmor;
+            }
         } else {
             throw new NotInInventoryException();
         }

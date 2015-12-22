@@ -6,7 +6,7 @@ public class Statistic {
     public static final int MAX_STAT_VALUE = 20;
     public static final int MIN_STAT_VALUE = 1;
 
-    final private int value;
+    private final int value;
 
     public Statistic() {
         this(DEFAULT_STAT_VALUE);
@@ -23,7 +23,6 @@ public class Statistic {
     public int getValue() {
         return value;
     }
-
 
     public int getModifier() {
         return ((int) Math.floor((double) (value - 10) / 2.0));
