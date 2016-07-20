@@ -27,9 +27,7 @@
         </dependency>
     </dependencies>
 
-
     <!-- BUILD CYCLE -->
-
     <build>
         <plugins>
             <plugin>

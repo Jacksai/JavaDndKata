@@ -31,12 +31,12 @@ public class Equipment {
     }
 
     public void setHeadArmor(Armor headArmor) throws NotInInventoryException {
-        if(isInInventory(headArmor)) {
-            if(headArmor.getArmorType().equals(ArmorType.HELMET)) {
+        if (isInInventory(headArmor)) {
+            if (headArmor.getArmorType().equals(ArmorType.HELMET)) {
                 this.headArmor = headArmor;
             }
         } else {
-            throw new NotInInventoryException();
+            throw new NotInInventoryException("Item is not in inventory");
         }
 
     }
@@ -46,11 +46,11 @@ public class Equipment {
     }
 
     public void setTorsoArmor(Armor torsoArmor) throws NotInInventoryException {
-        if(isInInventory(torsoArmor)) {
-            if(torsoArmor.getArmorType().equals(ArmorType.TORSO))
+        if (isInInventory(torsoArmor)) {
+            if (torsoArmor.getArmorType().equals(ArmorType.TORSO))
                 this.torsoArmor = torsoArmor;
         } else {
-            throw new NotInInventoryException();
+            throw new NotInInventoryException("Item is not in inventory.");
         }
 
     }
@@ -60,8 +60,8 @@ public class Equipment {
     }
 
     public void setBootsArmor(Armor bootsArmor) throws NotInInventoryException {
-        if(isInInventory(bootsArmor)) {
-            if(bootsArmor.getArmorType().equals(ArmorType.BOOTS)) {
+        if (isInInventory(bootsArmor)) {
+            if (bootsArmor.getArmorType().equals(ArmorType.BOOTS)) {
                 this.bootsArmor = bootsArmor;
             }
         } else {
@@ -75,7 +75,7 @@ public class Equipment {
     }
 
     public void setRightHandWeapon(Weapon rightHandWeapon) throws NotInInventoryException {
-        if(isInInventory(rightHandWeapon)) {
+        if (isInInventory(rightHandWeapon)) {
             this.rightHandWeapon = rightHandWeapon;
         } else {
             throw new NotInInventoryException();
@@ -88,7 +88,7 @@ public class Equipment {
     }
 
     public void setLeftHandWeapon(Weapon leftHandWeapon) throws NotInInventoryException {
-        if(isInInventory(leftHandWeapon)) {
+        if (isInInventory(leftHandWeapon)) {
             this.leftHandWeapon = leftHandWeapon;
         } else {
             throw new NotInInventoryException();
@@ -98,4 +98,12 @@ public class Equipment {
 }
 
 class NotInInventoryException extends Exception {
+
+    NotInInventoryException() {
+    }
+
+    NotInInventoryException(String message) {
+        super(message);
+    }
+
 }

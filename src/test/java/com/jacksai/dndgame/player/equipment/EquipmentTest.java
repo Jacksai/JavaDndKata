@@ -18,22 +18,28 @@ public class EquipmentTest {
 
     @Before
     public void initTest() {
-         inventory = new Inventory();
-         equipment = new Equipment(inventory);
+        inventory = new Inventory();
+        equipment = new Equipment(inventory);
     }
 
 
-    @Test(expected = NotInInventoryException.class)
-    public void shouldThrowNotInInventoryExceptionWhenTryingToEquipSomethingNotInInventory() throws Exception{
-        //Arrange
-        Armor armor = new Armor(defaultItemName, defaultItemWeight,1);
+    @Test
+    public void shouldThrowExceptionWhenTryingToEquipArmorNotInInventory() {
 
-        //Act
-        equipment.setTorsoArmor(armor);
+        //Arrange
+        Armor armor = new Armor(defaultItemName, defaultItemWeight, 1);
+
+        try {
+            //Act
+            equipment.setTorsoArmor(armor);
+            fail(("Should throw error"));
+        } catch (NotInInventoryException ex) {
+            assertEquals("Item is not in inventory.", ex.getMessage());
+        }
     }
 
     @Test
-    public void shouldEquipCorrectlyWhenProperArmor() throws Exception{
+    public void shouldEquipCorrectlyWhenProperArmor() throws Exception {
         //Arrange
         Armor headArmor = new Armor(defaultItemName, defaultItemWeight, 1);
         headArmor.setArmorType(ArmorType.HELMET);
@@ -61,7 +67,7 @@ public class EquipmentTest {
     }
 
     @Test
-    public void shouldFailToEquipWhenEquippingWrongArmorOnTorso() throws Exception{
+    public void shouldFailToEquipWhenEquippingWrongArmorOnTorso() throws Exception {
         //Arrange
         Armor wrongArmor = new Armor(defaultItemName, defaultItemWeight, 1);
         wrongArmor.setArmorType(ArmorType.HELMET);
@@ -75,7 +81,7 @@ public class EquipmentTest {
     }
 
     @Test
-    public void shouldFailToEquipWhenEquippingWrongArmorOnBoots() throws Exception{
+    public void shouldFailToEquipWhenEquippingWrongArmorOnBoots() throws Exception {
         //Arrange
         Armor wrongArmor = new Armor(defaultItemName, defaultItemWeight, 1);
         wrongArmor.setArmorType(ArmorType.HELMET);
